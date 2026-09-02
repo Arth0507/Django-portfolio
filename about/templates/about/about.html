@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title %}About | Portfolio{% endblock %}
+{% block nav_about %}active{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-section {
+        background: #0f0f1a;
+        color: #e0e0e0;
+        padding: 80px 0;
+        min-height: 90vh;
+    }
+
+    .about-img {
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(108, 99, 255, 0.25);
+        object-fit: cover;
+    }
+
+    .section-title {
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .section-title span {
+        color: #6c63ff;
+    }
+
+    .about-text p {
+        color: #b5b5b5;
+        line-height: 1.8;
+    }
+
+    .skill-badge {
+        display: inline-block;
+        background: #1c1c2e;
+        border: 1px solid #6c63ff;
+        color: #fff;
+        padding: 8px 18px;
+        border-radius: 20px;
+        margin: 5px 6px 5px 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: 0.3s ease;
+    }
+
+    .skill-badge:hover {
+        background: #6c63ff;
+    }
+
+    .edu-card {
+        background: #1c1c2e;
+        border-left: 3px solid #6c63ff;
+        padding: 20px 25px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .edu-card h5 {
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .edu-card p {
+        color: #a0a0a0;
+        margin-bottom: 0;
+    }
+
+    .btn-primary-custom {
+        background: #6c63ff;
+        border: none;
+        padding: 10px 28px;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: 0.3s ease;
+        color: #fff;
+        display: inline-block;
+    }
+
+    .btn-primary-custom:hover {
+        background: #574fd6;
+        color: #fff;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="about-section">
+    <div class="container">
+
+        <div class="row align-items-center g-5 mb-5">
+            <div class="col-md-5">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+                     alt="About Me" class="about-img">
+            </div>
+            <div class="col-md-7">
+                <p class="text-uppercase mb-2" style="color: #6c63ff; letter-spacing: 2px;">About Me</p>
+                <h2 class="section-title">Get to know <span>who I am</span></h2>
+                <div class="about-text">
+                    <p>
+                        I'm a B.Tech student specializing in Computer Science with a focus on
+                        Artificial Intelligence and Machine Learning. I enjoy building models,
+                        experimenting with data, and turning complex problems into simple,
+                        working solutions.
+                    </p>
+                    <p>
+                        Alongside my coursework, I explore Linux, backend development, and
+                        AI-driven applications — always looking to learn something new and
+                        apply it to real projects.
+                    </p>
+                </div>
+                <a href="{% url 'contact_page' %}" class="btn-primary-custom mt-3">Let's Connect</a>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h3 class="section-title">My <span>Skills</span></h3>
+                <div>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">Machine Learning</span>
+                    <span class="skill-badge">Django</span>
+                    <span class="skill-badge">HTML &amp; CSS</span>
+                    <span class="skill-badge">Bootstrap</span>
+                    <span class="skill-badge">SQL</span>
+                    <span class="skill-badge">Git &amp; GitHub</span>
+                    <span class="skill-badge">Linux</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h3 class="section-title">Education</h3>
+                <div class="edu-card">
+                    <h5>B.Tech, Computer Science (AI &amp; ML)</h5>
+                    <p>Shri ram institute of science and technology, Jabalpur</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

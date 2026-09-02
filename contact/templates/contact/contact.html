@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact | Portfolio{% endblock %}
+{% block nav_contact %}active{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-section {
+        background: #0f0f1a;
+        color: #e0e0e0;
+        padding: 80px 0;
+        min-height: 90vh;
+    }
+
+    .section-title {
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .section-title span {
+        color: #6c63ff;
+    }
+
+    .contact-info-card {
+        background: #1c1c2e;
+        border-left: 3px solid #6c63ff;
+        padding: 20px 25px;
+        border-radius: 8px;
+        margin-bottom: 18px;
+    }
+
+    .contact-info-card h6 {
+        color: #6c63ff;
+        font-weight: 600;
+        margin-bottom: 5px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .contact-info-card p {
+        color: #fff;
+        margin-bottom: 0;
+        font-size: 1rem;
+    }
+
+    .contact-form {
+        background: #1c1c2e;
+        border-radius: 16px;
+        padding: 35px;
+    }
+
+    .contact-form label {
+        color: #cfcfcf;
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+
+    .contact-form .form-control {
+        background: #0f0f1a;
+        border: 1px solid #333;
+        color: #fff;
+        border-radius: 8px;
+        padding: 12px 15px;
+    }
+
+    .contact-form .form-control:focus {
+        background: #0f0f1a;
+        color: #fff;
+        border-color: #6c63ff;
+        box-shadow: 0 0 0 0.2rem rgba(108, 99, 255, 0.25);
+    }
+
+    .contact-form .form-control::placeholder {
+        color: #6c6c6c;
+    }
+
+    .btn-primary-custom {
+        background: #6c63ff;
+        border: none;
+        padding: 12px 30px;
+        font-weight: 600;
+        border-radius: 30px;
+        color: #fff;
+        transition: 0.3s ease;
+    }
+
+    .btn-primary-custom:hover {
+        background: #574fd6;
+        color: #fff;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="container">
+        <p class="text-uppercase mb-2" style="color: #6c63ff; letter-spacing: 2px;">Get in Touch</p>
+        <h2 class="section-title">Let's <span>talk</span></h2>
+
+        <div class="row g-5 mt-2">
+            <div class="col-md-4">
+                <div class="contact-info-card">
+                    <h6>Email</h6>
+                    <p>your.email@example.com</p>
+                </div>
+                <div class="contact-info-card">
+                    <h6>Phone</h6>
+                    <p>+91 00000 00000</p>
+                </div>
+                <div class="contact-info-card">
+                    <h6>Location</h6>
+                    <p>Bhopal, Madhya Pradesh, India</p>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <form class="contact-form" method="POST" action="{% url 'contact_page' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Your Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary-custom">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
